@@ -20,6 +20,17 @@ export class AppComponent {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  // lottie
+  ngAfterViewInit(): void {
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-container')!,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/animations/907 1 2.json',
+    });
+  }
+
   activeButton: string = 'btn1';
 
   toggleContent(button: string) {
@@ -129,15 +140,77 @@ export class AppComponent {
     ],
   };
 
-  ngAfterViewInit(): void {
-    lottie.loadAnimation({
-      container: document.getElementById('lottie-container')!,
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/animations/907 1 2.json',
-    });
-  }
+  // beneficios
+  beneficios = [
+    {
+      title: 'Mayor Liquidez',
+      description:
+        'La tokenización de activos podría aumentar significativamente la liquidez de los activos, ya que permite el comercio fraccionado.',
+      svg: '../assets/svg/money-hand.svg',
+    },
+    {
+      title: 'Eficiencia Mejorada',
+      description:
+        'La tokenización agiliza el proceso comercial al eliminar intermediarios y automatizar muchos aspectos del proceso de transacción a través de contratos inteligentes.',
+      svg: '../assets/svg/zap.svg',
+    },
+    {
+      title: 'Transparencia',
+      description:
+        'La naturaleza inmutable de la tecnología Blockchain garantiza un registro transparente y seguro de la propiedad y las transacciones de los activos.',
+      svg: '../assets/svg/search-menu.svg',
+    },
+    {
+      title: 'Mayor Accesibilidad',
+      description:
+        'La tokenización de activos abre el mundo del comercio a un público más amplio, ya que permite a las personas e instituciones negociar la propiedad fraccionada en una variedad de activos.',
+      svg: '../assets/svg/ar-cube-3.svg',
+    },
+  ];
+
+  // steps
+  steps = [
+    {
+      step: 'Step 1',
+      svg: 'assets/svg/_x31_3_3_.svg',
+      title: 'Crea una cuenta y conecta tu wallet.',
+      videoUrl: 'https://www.youtube.com/embed/rDYdeq3JW_E?si=6J0PO_nQAeMtprM8',
+      borderColor: '#325FEC',
+    },
+    {
+      step: 'Step 2',
+      svg: 'assets/svg/product-feedback 1.svg',
+      title: 'Verifica tu identidad.',
+      videoUrl: 'https://www.youtube.com/embed/B1W_AcO7wmQ?si=g-p9evsW_7wg-ZKY',
+      borderColor: '#7FFEF0',
+    },
+    {
+      step: 'Step 3',
+      svg: 'assets/svg/currency-exchange 1.svg',
+      title: 'Verifica tu identidad.',
+      videoUrl: 'https://www.youtube.com/embed/rDYdeq3JW_E?si=6J0PO_nQAeMtprM8',
+      borderColor: '#D7FC51',
+    },
+  ];
+  // steps
+  noticias = [
+    {
+      date: 'Feb 28',
+      img: 'assets/img/placeholder.png',
+      title: 'Sed do eiusmod tempor incididunt ut',
+    },
+    {
+      date: 'Feb 14',
+      img: 'assets/svg/placeholder.svg',
+      title: 'Ut enim ad minim veniam, quis nostrud',
+    },
+    {
+      date: 'Feb 2',
+      img: 'assets/svg/placeholder.svg',
+      title: 'Sed do eiusmod tempor incididunt ut',
+    },
+  ];
+
   // modal
   showModal = false;
   videoUrl!: SafeResourceUrl;
