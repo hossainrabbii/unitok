@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+body {
+  font-family: "Raveo Display Display Medium";
+}
+
+.custom-prev,
+.custom-next {
+  position: absolute;
+  top: -68px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  z-index: 10;
+}
+
+.custom-prev {
+  right: 180px;
+}
+
+.custom-next {
+  right: 130px;
+}
+.token_custom-prev img,
+.token_custom-next img,
+.custom-prev img,
+.custom-next img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.token_custom-prev,
+.token_custom-next {
+  bottom: 0 !important;
+  position: absolute;
+  z-index: 2222;
+}
+.token_custom-prev {
+  left: 495px;
+}
+
+.token_custom-next {
+  left: 550px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1535px) {
+  .token_custom-prev,
+  .token_custom-next {
+    bottom: -50px !important;
+  }
+  .token_custom-prev {
+    left: 0px;
+  }
+
+  .token_custom-next {
+    left: 50px;
+  }
+}
