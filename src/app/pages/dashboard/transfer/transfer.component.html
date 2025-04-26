@@ -1,0 +1,182 @@
+<section>
+  <div class="p-5 border-b border-[#DCDCDC]">
+    <h6 class="text-[24px]">Transfer</h6>
+    <div class="flex flex-col lg:flex-row">
+      <div
+        class="pr-0 lg:pr-8 w-full lg:w-1/2 border-0 lg:border-r border-[#dcdcdc] mt-8"
+      >
+        <div class="bg-[#FAFAFA] p-4">
+          <p class="text-[16px] text-[#989898]">Destination Wallet</p>
+          <input
+            id="destination"
+            class="text-[#7C7C7C] text-[20px] placeholder-[#989898] rounded-md border border-gray-100 focus:outline-none w-full py-2 mt-2"
+          />
+        </div>
+        <div class="bg-[#FAFAFA] p-4 mt-4 flex justify-between items-center">
+          <div>
+            <p class="text-[16px] text-[#989898]">Amount</p>
+            <input
+              id="amount"
+              class="text-[#7C7C7C] text-[20px] placeholder-[#989898] rounded-md border border-gray-100 focus:outline-none w-full py-2 mt-2"
+            />
+          </div>
+          <p class="text-[16px] text-[#040404]">MAX</p>
+        </div>
+
+        <p class="text-[16px] text-[#989898] mt-4">≈ ${{ totalAmount }}</p>
+
+        <button
+          class="text-center text-white w-full bg-[#325FEC] hover:bg-[#3260ecea] rounded-md py-2 cursor-pointer mt-4"
+        >
+          Send Transaction
+        </button>
+      </div>
+      <div class="w-full lg:w-1/2 pl-0 lg:pl-8 pt-8">
+        <p class="text-[16px] text-[#989898]">Available Balance</p>
+        <h3 class="text-[30px] lg:text-[48px] text-[#040404] mt-4">
+          {{ availableBalance }} USDT
+        </h3>
+
+        <div class="flex items-center gap-1">
+          <img src="../assets/svg/crypto-wallet.svg" alt="crypto-wallet" />
+          <p class="text-[16px] text-[#040404]">{{ trsCode }}</p>
+          <div class="relative inline-block">
+            <img
+              src="../assets/svg/square-behind-square-6.svg"
+              alt="square-behind-square"
+              class="cursor-pointer"
+              (click)="copyToSingleClipboard(trsCode)"
+            />
+
+            <div
+              *ngIf="copied"
+              class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded"
+            >
+              Copied!
+            </div>
+          </div>
+        </div>
+        <div class="bg-[#FAFAFA] rounded-md p-4 mt-8">
+          <div class="flex gap-2 mb-4">
+            <img
+              src="../assets/svg/triangle-exclamation.svg"
+              alt="triangle-exclamation"
+            />
+            <p class="text-[16px] text-[#040404]">Warning</p>
+          </div>
+          <div class="text-[14px]">
+            <p>The transaction is <strong>irreversible</strong>.</p>
+            <p>
+              Only USDT via <strong>TRC20 (TRON network)</strong> is accepted.
+            </p>
+            <p>
+              A <strong>minimum of 40 TRX</strong> must be in the wallet for
+              claim visibility.
+            </p>
+            <p>
+              To activate the wallet, user must
+              <strong>send at least 0.1 TRX</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-5">
+  <!-- Buttons -->
+  <div class="flex space-x-2 my-6 border-b border-[#DCDCDC]">
+    <button
+      id="trx"
+      class="p-2 cursor-pointer text-[#9F9E9B]"
+      [ngClass]="{ ' text-black border-b': historyBtn === 'trx' }"
+      (click)="toggleContent('trx')"
+    >
+      USDT TRX History
+    </button>
+    <button
+      id="usdt"
+      class="cursor-pointer text-[#9F9E9B] 1 p-2"
+      [ngClass]="{ ' text-black border-b': historyBtn === 'usdt' }"
+      (click)="toggleContent('usdt')"
+    >
+      Polygon USDT History
+    </button>
+  </div>
+
+  <!-- trx -->
+  <div *ngIf="historyBtn === 'trx'" class="overflow-x-auto">
+    <table class="min-w-full table-fixed sm:overflow-x-visible">
+      <thead>
+        <tr class="text-left border-b border-[#DCDCDC] text-[#7C7C7C]">
+          <th class="py-3 w-1/6 font-extralight flex gap-2 items-center">
+            Date
+            <img src="../assets/svg/circle-info ash.svg" alt="circle-info" />
+          </th>
+          <th class="py-3 w-1/6 font-extralight">Type</th>
+          <th class="py-3 w-1/6 font-extralight">Amount</th>
+          <th class="py-3 w-1/6 font-extralight">Destination Wallet</th>
+          <th class="py-3 w-1/6 font-extralight">TxID</th>
+          <th class="py-3 w-1/6 font-extralight">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let data of datas"
+          class="hover:bg-gray-50 text-[14px] text-[#525252]"
+        >
+          <td class="py-3 w-1/6">{{ data?.date }}</td>
+          <td class="py-3 w-1/6">{{ data?.type }}</td>
+          <td class="py-3 text-[#21C16B] w-1/6">USDT {{ data.amount }}</td>
+          <td class="py-3 w-1/6">
+            <div class="flex items-center gap-1">
+              <p class="text-[16px] text-[#040404]">
+                {{ formatid(data.destination) }}
+              </p>
+              <div class="relative inline-block">
+                <img
+                  src="../assets/svg/square-behind-square-6.svg"
+                  alt="square-behind-square"
+                  class="cursor-pointer"
+                  (click)="copyToClipboard(data.destination)"
+                />
+                <div
+                  *ngIf="copiedTxid === data.destination"
+                  class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                >
+                  Copied!
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="py-3 w-1/6">
+            <div class="flex items-center gap-1">
+              <p class="text-[16px] text-[#040404]">
+                {{ formatid(data.txid) }}
+              </p>
+              <div class="relative inline-block">
+                <img
+                  src="../assets/svg/square-behind-square-6.svg"
+                  alt="square-behind-square"
+                  class="cursor-pointer"
+                  (click)="copyToClipboard(data.txid)"
+                />
+                <div
+                  *ngIf="copiedTxid === data.txid"
+                  class="absolute -top-6 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap"
+                >
+                  Copied!
+                </div>
+              </div>
+            </div>
+          </td>
+
+          <td class="py-3 w-1/6">{{ data?.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="historyBtn === 'usdt'">No data</div>
+</section>

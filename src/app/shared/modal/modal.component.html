@@ -1,0 +1,25 @@
+<div
+  class="fixed inset-0 bg-[#00000025] backdrop-blur-sm flex justify-center items-center"
+>
+  <div class="bg-white p-6 rounded-lg w-[320px] md:w-[500px] text-center">
+    <h3 class="text-[32px] mb-4">Secure your account</h3>
+    <p class="text-[18px] text-[#989898]">
+      Scan the QR Code below using your preferred authenticator app and then
+      enter the provided one-time code below.
+    </p>
+    <img src="../assets/svg/qr.svg" alt="QR" class="mx-auto my-8" />
+    <p class="text-[18px]">Enter your one-time code below</p>
+    <input
+      type="text"
+      [(ngModel)]="inputNumber"
+      placeholder="Enter any number"
+      class=" block w-full rounded-md p-4 bg-[#E9E9E9] placeholder:text-[#B0B0B0] outline-0 mb-4 mt-8 text-center"
+    />
+    <button
+      [ngClass]="buttonBgColor"
+      (click)="onSubmit()"
+      class="text-white py-4 rounded-md transition duration-200 flex items-center justify-center gap-1 w-full"
+      [innerHTML]="buttonText"
+    ></button>
+  </div>
+</div>

@@ -22,6 +22,9 @@ body {
 .custom-next {
   right: 130px;
 }
+
+.testi-prev img,
+.testi-next img,
 .token_custom-prev img,
 .token_custom-next img,
 .custom-prev img,
@@ -30,7 +33,8 @@ body {
   height: 40px;
   cursor: pointer;
 }
-
+.testi-prev,
+.testi-next,
 .token_custom-prev,
 .token_custom-next {
   bottom: 0 !important;
@@ -43,6 +47,15 @@ body {
 
 .token_custom-next {
   left: 550px;
+}
+
+.testi-prev {
+  top: 200px;
+  right: 50px;
+}
+.testi-next {
+  top: 200px;
+  right: 0px;
 }
 
 @media screen and (min-width: 768px) and (max-width: 1535px) {
@@ -59,4 +72,9 @@ body {
   }
 }
 
-
+@media screen and (max-width: 768px) {
+  .testi-prev,
+  .testi-next {
+    display: none !important;
+  }
+}

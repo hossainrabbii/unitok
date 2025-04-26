@@ -1,0 +1,16 @@
+/* Add this to your styles.css or component styles */
+#mobileSidebar {
+    z-index: 1000; /* Ensure the sidebar is above other content */
+  }
+  
+  /* Transition for mobile sidebar */
+  #mobileSidebar.show {
+    transform: translateX(0);
+  }
+  
+
+  .active {
+    background-color: #EBEFFD; /* Same as hover background */
+    color: #315CE6; /* Same as hover text color */
+  }
+  

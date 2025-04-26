@@ -1,16 +1,30 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component'; // Main app component component
-import { ToggleBtnComponent } from './toggle-btn/toggle-btn.component'; 
-
+import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NavbarComponent } from './core/navbar/navbar.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './shared/modal/modal.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ToggleBtnComponent, // Declare your toggle component here
+    HomeComponent,
+    AboutComponent,
+    ContactComponent,
+    DashboardComponent,
+    LoginComponent,
+    ModalComponent,
+    NavbarComponent,
+    FooterComponent,
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
-  bootstrap: [AppComponent], // Bootstrap the main app component
-  schemas: [NO_ERRORS_SCHEMA], // Add NO_ERRORS_SCHEMA here
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

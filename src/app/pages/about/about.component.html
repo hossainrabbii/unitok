@@ -1,0 +1,181 @@
+<main class="overflow-hidden">
+  <!-- banner -->
+  <section class="pt-40 pb-20 lg:py-40">
+    <div class="container px-2 mx-auto">
+      <div class="w-full lg:w-[998px]">
+        <p class="text-[16px] bg-[#F6F6F6] rounded-3xl py-2 px-5 inline-block">
+          About Unitok
+        </p>
+
+        <h3 class="text-[25px] lg:text-[40px] my-4">
+          En UNITOK, transformamos la inversión a través de la okenización de
+          activos reales. Nuestra plataforma utiliza tecnología blockchain para
+          fraccionar activos como bienes raíces y negocios en tokens digitales,
+          ofreciendo seguridad, liquidez y acceso global.
+        </h3>
+        <h3 class="text-[25px] lg:text-[40px] my-4">
+          Conectamos inversores con oportunidades rentables y brindamos a los
+          propietarios de proyectos una nueva forma de financiamiento,
+          eliminando barreras y optimizando el proceso de inversión.
+        </h3>
+        <div class="text-[22px] lg:text-[40px] my-4 flex items-center" href="#">
+          <img src="../assets/svg/blue-logosvg.svg" alt="" />
+          <a href="" class="text-[#325FEC] px-1"> unitok </a>
+          <p>es el puente hacia el futuro financiero.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /banner -->
+  <!-- team -->
+  <section class="bg-[#010131] relative h-auto lg:h-[862px]">
+    <div class="container px-2 mx-auto h-full py-20">
+      <div
+        class="w-full lg:w-[50%] h-full flex flex-col justify-between mt-160 lg:mt-0"
+      >
+        <h4 class="text-[32px] text-white">
+          UNITOK nació con el propósito de simplificar y expandir el acceso a la
+          tokenización de activos, permitiendo que inversores y propietarios
+          aprovechen el potencial de la tecnología blockchain de manera segura y
+          eficiente.
+        </h4>
+        <h6 class="text-white opacity-70">
+          Desde el inicio, nos enfocamos en desarrollar una plataforma robusta y
+          accesible, eliminando las complejidades del ecosistema cripto y
+          brindando herramientas que faciliten la inversión y financiamiento de
+          proyectos a través de la digitalización de activos. Hoy, UNITOK
+          continúa evolucionando con la misión de democratizar las inversiones y
+          redefinir el futuro financiero.
+        </h6>
+      </div>
+      <img
+        src="../assets/svg/team.svg"
+        alt="Team image"
+        class="absolute top-0 right-0"
+      />
+    </div>
+  </section>
+  <!-- /team -->
+
+  <!-- Valores -->
+
+  <section class="py-20">
+    <div class="container mx-auto px-2 flex flex-col lg:flex-row">
+      <div class="w-full lg:w-[45%]">
+        <h2 class="mb-12 lg:mb-0 text-[30px] lg:text-[48px]">Valores</h2>
+      </div>
+      <div class="w-full lg:w-[55%]">
+        <div class="grid grid-cols-2 gap-4 lg:gap-8">
+          <div *ngFor="let valor of valores; let i = index" class="w-full my-2">
+            <img [src]="valor.svg" alt="icons" />
+            <h6 class="text-[24px] text-black mt-4">{{ valor.title }}</h6>
+            <p class="text-black opacity-50 font-thin mt-4">
+              {{ valor.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- /Valores -->
+
+  <!-- Impacto -->
+  <section class="py-20">
+    <div
+      class="container mx-auto p-4 bg-[#325FEC] rounded-2xl flex gap-4 lg:gap-8 text-white flex-col lg:flex-row"
+    >
+      <div class="w-full lg:w-[70%] p-4 flex flex-col justify-between gap-40">
+        <h2 class="text-[30px] lg:text-[48px]">Impacto</h2>
+        <div class="flex justify-between">
+          <div>
+            <h1 class="text-[50px] lg:text-[120px] ">27</h1>
+            <p class="text-[20px] opacity-50">proyectos tokenizados</p>
+          </div>
+          <div>
+            <h1 class="text-[50px] lg:text-[120px] ">12</h1>
+            <p class="text-[20px] opacity-50">inversores activos</p>
+          </div>
+          <div>
+            <h1 class="text-[50px] lg:text-[120px] ">4</h1>
+            <p class="text-[20px] opacity-50">paises con oportunidades</p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-full lg:w-[30%] bg-[#010131] rounded-md flex flex-col justify-between p-4"
+      >
+        <img
+          src="../assets/svg/product-feedback 2.svg"
+          alt="icon"
+          class="w-[124px]"
+        />
+        <h4 class="text-[32px]">
+          Seguridad garantizada con tecnología blockchain
+        </h4>
+      </div>
+    </div>
+  </section>
+  <!-- /Impacto -->
+
+  <!-- testimonials -->
+  <section class="py-20 bg-[#F6F6F6]">
+    <div class="w-full lg:w-[875px] mx-auto">
+      <h2 class="text-[30px] lg:text-[48px] text-center">
+        Testimonios de nuestras clientes
+      </h2>
+      <ngx-slick-carousel [config]="testimonialSlideConfig">
+        <div class="" ngxSlickItem *ngFor="let testimoni of testimonials">
+          <div class="flex gap-12 my-20 flex-col lg:flex-row px-2">
+            <div
+              class="w-full lg:w-[245px] h-[400px] lg:h-[245px] rounded-sm overflow-hidden shadow-md mx-auto"
+            >
+              <img
+                [src]="testimoni.img"
+                alt="man"
+                class="object-cover w-full h-full"
+              />
+            </div>
+            <div class="flex-1 flex flex-col justify-between">
+              <h6 class="text-[24px]">"{{ testimoni.desc }}"</h6>
+
+              <div class="">
+                <p class="text-[20px]">{{ testimoni.name }}</p>
+
+                <p class="text-[15px]">
+                  {{ testimoni.designation }}
+                  <span class="text-[#BDBDBD] ml-4"
+                    >{{ testimoni.year }} years old</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ngx-slick-carousel>
+    </div>
+  </section>
+  <!-- /testimonials -->
+
+  <!-- platform -->
+  <section
+    class="py-20 lg:py-32 relative bg-[linear-gradient(90deg,_rgba(55,106,236,1)_0%,_rgba(122,241,240,1)_100%)]"
+  >
+    <div class="container px-2 mx-auto">
+      <h2
+        class="text-[30px] lg:text-[54px] w-[470px] text-base/10 lg:text-base/16 text-white mb-4"
+      >
+        La plataforma que transforma activos en tokens.
+      </h2>
+      <a
+        href="#"
+        class="text-black bg-[#D7FC51] hover:bg-[#CCF146] px-6 py-3 lg:py-4 inline-block rounded-md mr-4"
+        >Habla con un experto</a
+      >
+      <span class="absolute top-0 right-0 hidden lg:block">
+        <img src="../assets/svg/Vector 49.svg" alt="" />
+      </span>
+    </div>
+  </section>
+  <!-- /platform -->
+</main>
